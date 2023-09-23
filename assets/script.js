@@ -80,31 +80,60 @@ var generateBtn = document.querySelector("#generate");
 // console.log(passwordLength[0]);
 //End variable to define
 
+//START CODE for function that determines is userinput is numerical - unsuccessful
+// if (Number.isInteger(userInputLength) = true) {
+//   console.log("It is an integer");
+// }
+// ??END CODE
 
-//Promptbox appears
-//
-var characterType = ["lowercase", "uppercase", "numeric", "special character e.g.$#%"];
 
-console.log(characterType[0]);
+// var characterType = ["lowercase", "uppercase", "numeric", "special character e.g.$#%"];
+
+// console.log(characterType[0]);
 
 // function writePassword() {
-  
-//   let userInputLength = window.prompt("How many characters will be in your password? \n(8-126 characters)","");
+
+//CODE for password length then store input then recall input and generate password.
+// const passwordLengths = []
+
+
+
+// let userInputLength = window.prompt("How many characters will be in your password? \n(8-126 characters)","");
 
 //   if (!userInputLength) {
-//     return;
+//       console.log("add return at the end of code when it works");
 //   } else if (userInputLength < 8 || userInputLength > 126) {
-//     console.log("Please enter number between 8 - 126");
+//       console.log("Please enter number between 8 - 126");
 //   } else if (userInputLength > 8 && userInputLength < 126) {
-//     userInputLength.push();
-//     let userInputCharacters = window.prompt("Would you like to include " characterType[0] " ? \n Y/N);
-//     userInputCharacters = userInputCharacters.toUpperCase();
-//     if 
+//       passwordLengths.push(userInputLength);
+//       console.log(passwordLengths[0]);
+//       var password = generatePassword();
+    
+//         passwordLengths.pop
+      
+      
+
 //   }
+
+
+//writePassword();
+passwordLengths = [0, 1, 2, 3, 4, 5, 6]
+var stringLength 
+
+console.log(passwordLengths.pop());
+// if (stringLength.length === passwordLengths.pop()) {
+//   console.log("Strings are same length");
+// };
+
+console.log(passwordLengths[1].length);
+// function generatePassword() {
+//   var stringLength;
+//   stringLength.length === passwordlengths.pop
+//   return Math.floor(Math.random() * stringLength);
 // }
 
-// writePassword();
-
+// generatePassword();
+// console.log(generatePassword());
 // //Trying:
 // var 
   
@@ -121,4 +150,6 @@ console.log(characterType[0]);
 
 //Promptbox asks which special characters to use
 
+
   //Options are stored in array characterTypes; 
+
