@@ -154,14 +154,6 @@ if (userInputLength <= 8 || userInputLength >= 128) {
     }
   }
   console.log(passwordOptions);
-
-  return passwordOptions;
-}
-
-
-Or
-let passwordOptions = {
-  userInputSpecialChar: boolean
 }
 
 // Function for getting a random element from an array
