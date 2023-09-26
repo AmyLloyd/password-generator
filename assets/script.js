@@ -145,17 +145,27 @@ if (userInputLength <= 8 || userInputLength >= 128) {
 
   // Object to store user input
 
-  let passwordOptions = {
-    uppercase: function () {
-    if (userInputUppercaseChar === true) {
-      uppercase = true; 
-    } else {
-      uppercase = false;
-    }
+  // Create and return an options object
+  return {
+    length: userInputLength,
+    specialChar: userInputSpecialChar,
+    numericChar: userInputNumericChar,
+    lowercaseChar: userInputLowercaseChar,
+    uppercaseChar: userInputUppercaseChar,
   }
-  console.log(passwordOptions);
-}
+  var passwordOptions = {
+    length: userInputLength,
+    includeSpecialChar: includeSpecialChar,
+    includeNumericChar: includeNumericChar,
+    includeLowercaseChar: includeLowercaseChar,
+    includeUppercaseChar: includeUppercaseChar,
+  };
 
+  // Log the passwordOptions object
+  console.log(passwordOptions);
+
+  return passwordOptions;
+}
 // Function for getting a random element from an array
 function getRandom(arr) {
  
