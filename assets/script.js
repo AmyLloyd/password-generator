@@ -125,6 +125,7 @@ if (userInputLength <= 8 || userInputLength >= 128) {
 
   // Variable to store boolean regarding the inclusion of special characters
  var userInputSpecialChar = window.confirm("Would you like to include special characters?");
+ console.log(userInputSpecialChar);
 
   // Variable to store boolean regarding the inclusion of numeric characters
  var userInputNumericChar = window.confirm("Would you like to include numeric characters?");
@@ -140,12 +141,30 @@ if (userInputLength <= 8 || userInputLength >= 128) {
   alert("You must choose at least one character type to include.");
  }
 
+ 
+
   // Object to store user input
+
+
   var passwordOptions = {
-   
+      uppercase: function() {
+        if (userInputUppercaseChar) {
+          console.log("true");
+          return true;
+
+        } else {
+          console.log("false");
+          return false;
+        }       
+      }
+ 
+
   };
 
   return passwordOptions;
+
+  console.log("passwordOptions");
+
 }
 
 // Function for getting a random element from an array
