@@ -146,26 +146,19 @@ if (userInputLength <= 8 || userInputLength >= 128) {
   // Object to store user input
 
   // Create and return an options object
-  return {
-    length: userInputLength,
-    specialChar: userInputSpecialChar,
-    numericChar: userInputNumericChar,
-    lowercaseChar: userInputLowercaseChar,
-    uppercaseChar: userInputUppercaseChar,
-  }
+
   var passwordOptions = {
     length: userInputLength,
-    includeSpecialChar: includeSpecialChar,
-    includeNumericChar: includeNumericChar,
-    includeLowercaseChar: includeLowercaseChar,
-    includeUppercaseChar: includeUppercaseChar,
+    includeSpecialChar: userInputSpecialChar,
+    includeNumericChar: userInputNumericChar,
+    includeLowercaseChar: userInputLowercaseChar,
+    includeUppercaseChar: userInputUppercaseChar,
   };
-
   // Log the passwordOptions object
   console.log(passwordOptions);
-
   return passwordOptions;
-}
+  }
+
 // Function for getting a random element from an array
 function getRandom(arr) {
  
