@@ -164,31 +164,30 @@ console.log(getPasswordOptions());
 function getRandomSpecialChars(array) {
   var random = Math.floor(Math.random() * specialCharacters.length);
   console.log(specialCharacters[random]);
+}
 
-  }
-
-  getRandomSpecialChars();
+getRandomSpecialChars();
 
 function getRandomNumericChars(array) {
   var random = Math.floor(Math.random() * numericCharacters.length);
   console.log(numericCharacters[random]);
-  }
+}
 
-  getRandomNumericChars();
+getRandomNumericChars();
 
 function getRandomLowercaseChars(array) {
   var random = Math.floor(Math.random() * lowerCasedCharacters.length);
   console.log(lowerCasedCharacters[random]);
-  }
+}
 
-  getRandomLowercaseChars();
+getRandomLowercaseChars();
 
 function getRandomUppercaseChars(array) {
   var random = Math.floor(Math.random() * upperCasedCharacters.length);
   console.log(upperCasedCharacters[random]);
-  }
+}
 
-  getRandomUppercaseChars();
+getRandomUppercaseChars();
 
 //---------------------------------------------------
 // Function to generate password with user input
@@ -199,48 +198,97 @@ function generatePassword() {
   console.log(options);
  
   // Variable to store password as it's being concatenated
- var passwordBuild = [];
+ var passwordBuilder = [];
 
   // Array to store types of characters to include in password
 
-  var trueValues = options.filter(function(item) {
-    return item.isActive === true;
-  });
+  var trueValues = options.filter(collectTrueValues());
+  
+  function collectTrueValues(options) {
+    return item === true;
+  }
 
   console.log(trueValues);
 
- 
   // Array to contain one of each type of chosen character to ensure each will be used
-
+  var guaranteedCharacters
 
   // Check if an options object exists, if not exit the function
- 
+  if (!options) {
+  return generatePassword();
+  }
 
   // Conditional statement that adds array of special characters into array of possible characters based on user input
-  // Push new random special character to guaranteedCharacters
- 
+   // Push new random special character to guaranteedCharacters
+
+  if (trueValues.includes(includeSpecialChar)) {
+  passwordBuilder = passwordBuilder.concat(specialCharacters);
+    var guaranteedSpecialChar = getRandomSpecialChars();
+    guaranteedCharacters.push(guaranteedSpecialChar);
+  } else {
+    console.log("No Special characters needed");
+  }   
 
   // Conditional statement that adds array of numeric characters into array of possible characters based on user input
   // Push new random special character to guaranteedCharacters
- 
+  if (trueValues.includes(includeLowercaseChar)) {
+    passwordBuilder = passwordBuilder.concat(lowerCasedCharacters);
+    var guaranteedLowercaseChar= getRandomLowercaseChars();
+    guaranteedCharacters.push(guaranteedLowercaseChar);  
+    } else {
+      console.log("No lowercase characters needed");
+    }   
 
   // Conditional statement that adds array of lowercase characters into array of possible characters based on user input
   // Push new random lower-cased character to guaranteedCharacters
- 
+  if (trueValues.includes(includeUppercaseChar)) {
+    passwordBuilder = passwordBuilder.concat(upperCasedCharacters);
+    var guaranteedUppercaseChar= getRandomUppercaseChars();
+    guaranteedCharacters.push(guaranteedUppercaseChar);  
+    } else {
+      console.log("No uppercase characters needed");
+    }  
+
   // Conditional statement that adds array of uppercase characters into array of possible characters based on user input
   // Push new random upper-cased character to guaranteedCharacters
- 
+  if (trueValues.includes(includeNumericChar)) {
+    passwordBuilder = passwordBuilder.concat(numericCharacters);
+    var guaranteedNumericChar = getRandomNumericChars();
+    guaranteedCharacters.push(guaranteedNumericChar);
+    } else {
+      console.log("No numeric characters needed");
+    }  
 
   // For loop to iterate over the password length from the options object, selecting random indices from the array of possible characters and concatenating those characters into the result variable
- 
+  
+  //Make variable indicating how many characters we already have 
+  var guaranteedLength = guaranteedCharacters.length;
 
-  // Mix in at least one of each guaranteed character in the result
- 
+  //Calculate how many more characters are needed
+  var differenceToTotal = options[length] - guaranteedLength;
+
+  var differenceCharacters;
+  
+  // Loop to collect enough random characters from the password builder to make up the difference
+    for (var i = 0; i < passwordBuilder.length; i++) {
+      function getRandomCharFromBuilder() 
+        var random = Math.floor(Math.random() * passwordBuilder.length);
+        console.log(passwordBuilder[random]);
+        differenceCharacters = getRandomCharFromBuilder();
+        if (differenceCharacters === differenceToTotal) {
+        return; 
+        }         
+    }
+  
+    // Concat differenceCharacters and guaranteedCharacters
+    var passwordArray [];
+    passwordArray = differenceCharacters.concat(guaranteedCharacters);      
+
   // Transform the result into a string and pass into writePassword
- 
+    
+  var passwordString = passwordArray.toString();
 }
 
-console.log("its working");
 generatePassword();
 
 // Get references to the #generate element
