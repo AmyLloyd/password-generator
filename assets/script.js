@@ -156,7 +156,9 @@ if (userInputLength <= 8 || userInputLength >= 128) {
   // Log the passwordOptions object
   console.log(passwordOptions);
   return passwordOptions;
-  }
+}
+
+console.log(getPasswordOptions());
 
 // Function for getting a random element from an array
 function getRandomSpecialChars(array) {
@@ -188,21 +190,28 @@ function getRandomUppercaseChars(array) {
 
   getRandomUppercaseChars();
 
-
+//---------------------------------------------------
 // Function to generate password with user input
+
+
 function generatePassword() {
   var options = getPasswordOptions();
-
-
-  
+  console.log(options);
+ 
   // Variable to store password as it's being concatenated
  var passwordBuild = [];
 
   // Array to store types of characters to include in password
-  var guaranteedCharacters = [];
+
+  var trueValues = options.filter(function(item) {
+    return item.isActive === true;
+  });
+
+  console.log(trueValues);
+
  
   // Array to contain one of each type of chosen character to ensure each will be used
-var chosenChars = [];
+
 
   // Check if an options object exists, if not exit the function
  
@@ -230,6 +239,9 @@ var chosenChars = [];
   // Transform the result into a string and pass into writePassword
  
 }
+
+console.log("its working");
+generatePassword();
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
