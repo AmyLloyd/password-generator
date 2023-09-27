@@ -125,8 +125,7 @@ if (userInputLength <= 8 || userInputLength >= 128) {
 
   // Variable to store boolean regarding the inclusion of special characters
  var userInputSpecialChar = window.confirm("Would you like to include special characters?");
- console.log(userInputSpecialChar);
-
+ 
   // Variable to store boolean regarding the inclusion of numeric characters
  var userInputNumericChar = window.confirm("Would you like to include numeric characters?");
 
@@ -142,10 +141,10 @@ if (userInputLength <= 8 || userInputLength >= 128) {
  }
 
  
-
   // Object to store user input
 
   // Create and return an options object
+  //**Support from tutor to develop a working Object**
 
   var passwordOptions = {
     length: userInputLength,
@@ -160,21 +159,50 @@ if (userInputLength <= 8 || userInputLength >= 128) {
   }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
- 
-}
+function getRandomSpecialChars(array) {
+  var random = Math.floor(Math.random() * specialCharacters.length);
+  console.log(specialCharacters[random]);
+
+  }
+
+  getRandomSpecialChars();
+
+function getRandomNumericChars(array) {
+  var random = Math.floor(Math.random() * numericCharacters.length);
+  console.log(numericCharacters[random]);
+  }
+
+  getRandomNumericChars();
+
+function getRandomLowercaseChars(array) {
+  var random = Math.floor(Math.random() * lowerCasedCharacters.length);
+  console.log(lowerCasedCharacters[random]);
+  }
+
+  getRandomLowercaseChars();
+
+function getRandomUppercaseChars(array) {
+  var random = Math.floor(Math.random() * upperCasedCharacters.length);
+  console.log(upperCasedCharacters[random]);
+  }
+
+  getRandomUppercaseChars();
+
 
 // Function to generate password with user input
 function generatePassword() {
   var options = getPasswordOptions();
+
+
+  
   // Variable to store password as it's being concatenated
- 
+ var passwordBuild = [];
 
   // Array to store types of characters to include in password
+  var guaranteedCharacters = [];
  
-
   // Array to contain one of each type of chosen character to ensure each will be used
-  
+var chosenChars = [];
 
   // Check if an options object exists, if not exit the function
  
