@@ -113,32 +113,32 @@ function getPasswordOptions() {
  if (isNaN(userInputLength)) {
   console.log("Not a number");
   return;
-}
+  }
 // Conditional statement to check if password length is at least 8 characters long. Prompts end if this evaluates false
  
 
   // Conditional statement to check if password length is less than 128 characters long. Prompts end if this evaluates false
-if (userInputLength <= 8 || userInputLength >= 128) {
+  if (userInputLength <= 8 || userInputLength >= 128) {
   window.alert("Password must be between 8 and 128 characters");
   return;
-}
+  }
 
   // Variable to store boolean regarding the inclusion of special characters
- var userInputSpecialChar = window.confirm("Would you like to include special characters?");
+  var userInputSpecialChar = window.confirm("Would you like to include special characters?");
  
   // Variable to store boolean regarding the inclusion of numeric characters
- var userInputNumericChar = window.confirm("Would you like to include numeric characters?");
+  var userInputNumericChar = window.confirm("Would you like to include numeric characters?");
 
   // Variable to store boolean regarding the inclusion of lowercase characters
- var userInputLowercaseChar = window.confirm("Would you like to include lowercase characters?");
+  var userInputLowercaseChar = window.confirm("Would you like to include lowercase characters?");
 
   // Variable to store boolean regarding the inclusion of uppercase characters
   var userInputUppercaseChar = window.confirm("Would you like to include uppercase characters?");
 
   // Conditional statement to check if user does not include any types of characters. Password generator ends if all four variables evaluate to false
- if (!userInputUppercaseChar && !userInputLowercaseChar && !userInputSpecialChar && !userInputNumericChar) {
+  if (!userInputUppercaseChar && !userInputLowercaseChar && !userInputSpecialChar && !userInputNumericChar) {
   alert("You must choose at least one character type to include.");
- }
+  }
 
  
   // Object to store user input
@@ -189,25 +189,25 @@ function getRandomUppercaseChars(array) {
 
 getRandomUppercaseChars();
 
-//---------------------------------------------------
-// Function to generate password with user input
 
+// Variable declared globally so available to all functions
+var options = getPasswordOptions();
+console.log(options);
 
+//Function to generate password with user input
 function generatePassword() {
-  var options = getPasswordOptions();
-  console.log(options);
- 
+  
+  
   // Variable to store password as it's being concatenated
  var passwordBuilder = [];
 
-  // Array to store types of characters to include in password
+  // Array to store all types of values that were true in options array
+  //from ChatGPT
 
-  var trueValues = options.filter(collectTrueValues());
+  var trueValues = options.filter(function(element) {
+    return element === true;
+  });
   
-  function collectTrueValues(options) {
-    return item === true;
-  }
-
   console.log(trueValues);
 
   // Array to contain one of each type of chosen character to ensure each will be used
@@ -271,17 +271,18 @@ function generatePassword() {
   
   // Loop to collect enough random characters from the password builder to make up the difference
     for (var i = 0; i < passwordBuilder.length; i++) {
-      function getRandomCharFromBuilder() 
+      function getRandomBuilderCh() {
         var random = Math.floor(Math.random() * passwordBuilder.length);
         console.log(passwordBuilder[random]);
-        differenceCharacters = getRandomCharFromBuilder();
+        differenceCharacters = getRandomBuilderCh();
         if (differenceCharacters === differenceToTotal) {
         return; 
         }         
+      } 
     }
   
     // Concat differenceCharacters and guaranteedCharacters
-    var passwordArray [];
+    var passwordArray;
     passwordArray = differenceCharacters.concat(guaranteedCharacters);      
 
   // Transform the result into a string and pass into writePassword
