@@ -18,7 +18,7 @@ If your README is long, add a table of contents to make it easy for users to fin
 - [Credits](#credits)
 
 ## Usage
-To use the password generator, go to this link: 
+To use the password generator, go to this link: https://create-88.github.io/password-generator/
 
 ![password-generator](assets/images/password-generator.png)
 
