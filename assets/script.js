@@ -1,18 +1,4 @@
-// // Assignment Code
-// var generateBtn = document.querySelector("#generate");
 
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
-//-------------------------------------------------
 
 // Array of special characters to be included in password
 var specialCharacters = [
@@ -111,26 +97,28 @@ var result = "";
 //Function to generate password with user input
 function generatePassword() {
 
+  //Initation of a pop-up box for user uinput. While loop to elimate all input that is unwanted before running function
   while (passwordLength < 8 || passwordLength >128 || passwordLength === "" || isNaN(parseInt(passwordLength))) {
     passwordLength = window.prompt("How many characters will your password have? \nEnter a value from 8 - 128");
   }
   
+  //Pop-up box to ask which special characters, then concated onto userChoice array
   var userInputSpecialChar = window.confirm("Would you like to include special characters?");
  if (userInputSpecialChar) {
   userChoices = userChoices.concat(specialCharacters);
  }
-  // Variable to store boolean regarding the inclusion of numeric characters
+  // Ask numeric characters and concat to userChoices
   var userInputNumericChar = window.confirm("Would you like to include numeric characters?");
   if (userInputNumericChar) {
     userChoices = userChoices.concat(numericCharacters);
    }
-  // Variable to store boolean regarding the inclusion of lowercase characters
+  // Ask lowercase characters and concat to userChoices
   var userInputLowercaseChar = window.confirm("Would you like to include lowercase characters?");
   if (userInputLowercaseChar) {
     userChoices = userChoices.concat(lowerCasedCharacters);
    }
 
-  // Variable to store boolean regarding the inclusion of uppercase characters
+  // Ask uppercase characters and concat to userChoices
   var userInputUppercaseChar = window.confirm("Would you like to include uppercase characters?");
   if (userInputUppercaseChar) {
     userChoices = userChoices.concat(upperCasedCharacters);
@@ -142,11 +130,10 @@ function generatePassword() {
   window.location.reload();
   }
 
-  // Loop to collect enough random characters from the password builder to make up the difference
+  // Loop to randomly choose characters from userChoices
+  // var result is ready to plug into write password()
     for (var i = 0; i < passwordLength; i++) {
        result +=userChoices [Math.floor(Math.random() * userChoices.length)];
-
-
         } 
       return result;        
       }
